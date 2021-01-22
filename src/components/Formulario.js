@@ -1,39 +1,57 @@
-import React from "react";
+import React, {useState} from "react";
 
 const Formulario = () => {
+
+  const [cita, setCita] = useState({
+    mascota: '',
+    dueño: '',
+    fecha:'',
+    hora:'',
+    sintomas:''
+  });
+
+  const handleChange = (e) => {
+    // Cuando los inputs cambian se ejecuta esta funcion
+    //...cita, crea una copia, esto porque cuando ecribias en otro input se remplazaba por lo ultimo que escribia
+    // [e.target.name]: con esto le decimos que el name va a tenenr el valor e.target.value
+    setCita({
+      ...cita,
+      [e.target.name]: e.target.value
+    })
+  }
   return(
     
     <form>
-      <label for="mascota">Nombre Mascota</label>
+      <label htmlFor="mascota">Nombre Mascota</label>
       <input 
         id="mascota"
         type="text"
         name="mascota"
+        onChange={handleChange}
       />
-      <label for="dueño">Nombre Dueño</label>
+      <label htmlFor="dueño">Nombre Dueño</label>
       <input 
         id="dueño"
         type="text"
         name="dueño"
       />
-      <label for="fecha">Fecha</label>
+      <label htmlFor="fecha">Fecha</label>
       <input 
         id="fecha"
         type="date"
         name="fecha"
       />
-      <label for="hora">Hora</label>
+      <label htmlFor="hora">Hora</label>
       <input 
         id="hora"
         type="date"
         name="hora"
       />
-      <label for="sintomas">Síntomas</label>
-      <input 
+      <label htmlFor="sintomas">Síntomas</label>
+      <textarea
         id="sintomas"
-        type="date"
         name="sintomas"
-      />
+      ></textarea>
       <button 
         type="submit"
       >
