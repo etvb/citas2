@@ -51,7 +51,7 @@ const Formulario = ({addCitas}) => {
     //este arreglo se encutra en app, asi que con lafuncion - - questa en app le mandamos nuestra cita y
     //se va a estar guardando en el state que esta en app
     addCitas(cita);
-    
+    setError(false);
   }
 
   const numRandom = () => {
