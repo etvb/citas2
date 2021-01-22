@@ -23,6 +23,9 @@ const Formulario = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    setCita(cita.id = numRandom());
+    console.log(cita);
+    
   }
 
   const numRandom = () => {
