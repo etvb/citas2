@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import Formulario from './components/Formulario';
+import ShowCitas from './components/ShowCitas';
+
 
 function App() {
   const [citas, setCitas] =useState([]);
@@ -12,6 +14,17 @@ function App() {
     <>
       <h2>Pedidos</h2>
       <Formulario  addCitas={addCitas}/>
+
+
+
+      <h2>Citas</h2>
+      {citas.map((cita) => {
+        return (<ShowCitas
+          key={cita.id} 
+          cita={cita} 
+        />)
+      })
+      }
     </>
   );
 }
