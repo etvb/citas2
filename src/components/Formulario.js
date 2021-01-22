@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Formulario = () => {
+const Formulario = ({addCitas}) => {
 
   const [cita, setCita] = useState({
     mascota: '',
@@ -22,9 +22,22 @@ const Formulario = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    //add the filed cita.id width a random number, este id se usara para borrar la cita
     setCita(cita.id = numRandom());
-    console.log(cita);
+    
+    //reiniciamos el formulario, esto funciona por qu en cada input tenemos value={cita.elemento}
+    setCita({
+      mascota: '',
+      dueño: '',
+      fecha:'',
+      hora:'',
+      sintomas:''
+    })    
+
+    //Mandar citas, cada vez que damos clic en agregar cita, esa info se tienen que ir a un arreglo, 
+    //este arreglo se encutra en app, asi que con lafuncion - - questa en app le mandamos nuestra cita y
+    //se va a estar guardando en el state que esta en app
+    addCitas(cita);
     
   }
 
@@ -44,6 +57,7 @@ const Formulario = () => {
         type="text"
         name="mascota"
         onChange={handleChange}
+        value={cita.mascota}
       />
       <label htmlFor="dueño">Nombre Dueño</label>
       <input 
@@ -51,26 +65,30 @@ const Formulario = () => {
         type="text"
         name="dueño"
         onChange={handleChange}
+        value={cita.dueño}
       />
-      <label htmlFor="fecha">Fecha</label>
+      <label htmlFor="fecha">Fecha de Ingreso</label>
       <input 
         id="fecha"
         type="date"
         name="fecha"
         onChange={handleChange}
+        value={cita.fecha}
       />
-      <label htmlFor="hora">Hora</label>
+      <label htmlFor="hora">Hora de Ingreso</label>
       <input 
         id="hora"
-        type="date"
+        type="time"
         name="hora"
         onChange={handleChange}
+        value={cita.hora}
       />
       <label htmlFor="sintomas">Síntomas</label>
       <textarea
         id="sintomas"
         name="sintomas"
         onChange={handleChange}
+        value={cita.sintomas}
       ></textarea>
       <button 
         type="submit"
