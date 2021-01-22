@@ -10,6 +10,8 @@ const Formulario = ({addCitas}) => {
     sintomas:''
   });
 
+  const [error, setError] = useState(false);
+
   const handleChange = (e) => {
     // Cuando los inputs cambian se ejecuta esta funcion
     //...cita, crea una copia, esto porque cuando ecribias en otro input se remplazaba por lo ultimo que escribia
@@ -22,6 +24,17 @@ const Formulario = ({addCitas}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //Validate
+    //Si alguna de las variables del state cita esta vacia, existe un error
+    if(cita.mascota.trim() === '' || cita.dueño.trim() === '' ||
+      cita.fecha.trim() === '' || cita.hora.trim() === '' || cita.sintomas.trim() === ''){
+      console.log('Esta vacio');
+      setError(true);
+      return
+    }
+
+
     //add the filed cita.id width a random number, este id se usara para borrar la cita
     setCita(cita.id = numRandom());
     
@@ -47,57 +60,59 @@ const Formulario = ({addCitas}) => {
   }
 
   return(
-    
-    <form
-      onSubmit={handleSubmit}
-    >
-      <label htmlFor="mascota">Nombre Mascota</label>
-      <input 
-        id="mascota"
-        type="text"
-        name="mascota"
-        onChange={handleChange}
-        value={cita.mascota}
-      />
-      <label htmlFor="dueño">Nombre Dueño</label>
-      <input 
-        id="dueño"
-        type="text"
-        name="dueño"
-        onChange={handleChange}
-        value={cita.dueño}
-      />
-      <label htmlFor="fecha">Fecha de Ingreso</label>
-      <input 
-        id="fecha"
-        type="date"
-        name="fecha"
-        onChange={handleChange}
-        value={cita.fecha}
-      />
-      <label htmlFor="hora">Hora de Ingreso</label>
-      <input 
-        id="hora"
-        type="time"
-        name="hora"
-        onChange={handleChange}
-        value={cita.hora}
-      />
-      <label htmlFor="sintomas">Síntomas</label>
-      <textarea
-        id="sintomas"
-        name="sintomas"
-        onChange={handleChange}
-        value={cita.sintomas}
-      ></textarea>
-      <button 
-        type="submit"
+    <>
+      {
+        error ? <p>Todos los campos son obligatorios </p> : null
+      }
+      <form
+        onSubmit={handleSubmit}
       >
-        Agregar Cita
-      </button>
-
-    </form>
-
+        <label htmlFor="mascota">Nombre Mascota</label>
+        <input 
+          id="mascota"
+          type="text"
+          name="mascota"
+          onChange={handleChange}
+          value={cita.mascota}
+        />
+        <label htmlFor="dueño">Nombre Dueño</label>
+        <input 
+          id="dueño"
+          type="text"
+          name="dueño"
+          onChange={handleChange}
+          value={cita.dueño}
+        />
+        <label htmlFor="fecha">Fecha de Ingreso</label>
+        <input 
+          id="fecha"
+          type="date"
+          name="fecha"
+          onChange={handleChange}
+          value={cita.fecha}
+        />
+        <label htmlFor="hora">Hora de Ingreso</label>
+        <input 
+          id="hora"
+          type="time"
+          name="hora"
+          onChange={handleChange}
+          value={cita.hora}
+        />
+        <label htmlFor="sintomas">Síntomas</label>
+        <textarea
+          id="sintomas"
+          name="sintomas"
+          onChange={handleChange}
+          value={cita.sintomas}
+        ></textarea>
+        <button 
+          type="submit"
+        >
+          Agregar Cita
+        </button>
+      </form>
+    </>
   );
 }
 
