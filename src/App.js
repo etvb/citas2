@@ -10,6 +10,16 @@ function App() {
     console.log(infoCita);
     setCitas([...citas,infoCita]);
   }
+
+  const delCita = (id) => {
+    console.log(id)
+
+    let newCitas = citas.filter((cita) => {
+      return  cita.id !== id
+    })
+    setCitas(newCitas);
+  }
+
   return (
     <>
       <h2>Pedidos</h2>
@@ -19,10 +29,12 @@ function App() {
 
       <h2>Citas</h2>
       {citas.map((cita) => {
-        return (<ShowCitas
-          key={cita.id} 
-          cita={cita} 
-        />)
+        return (
+          <ShowCitas
+            key={cita.id} 
+            cita={cita}
+            delCita={delCita} 
+          />)
       })
       }
     </>

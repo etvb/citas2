@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShowCitas = ({cita}) => {
+const ShowCitas = ({cita, delCita}) => {
   return(
     <>
       <div>
@@ -8,8 +8,8 @@ const ShowCitas = ({cita}) => {
         <p>Dueño: {cita.dueño}</p>
         <p>Ingreso: {cita.fecha} a las {cita.hora}</p>
         <p>Sintomas: {cita.sintomas}</p>
+        <button onClick={() => {delCita(cita.id)}}>Borrar</button>
       </div>
-
     </>
   );
 }
