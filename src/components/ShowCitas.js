@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 const ShowCitas = ({cita, delCita}) => {
   return(
@@ -12,6 +14,11 @@ const ShowCitas = ({cita, delCita}) => {
       </div>
     </>
   );
+}
+
+ShowCitas.propTypes = {
+  cita: PropTypes.object.isRequired,
+  delCita: PropTypes.func.isRequired
 }
 
 export default ShowCitas;

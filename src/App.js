@@ -37,7 +37,7 @@ function App() {
       localStorage.setItem('citas', JSON.stringify([]))
     }    
 
-  },[citas]);
+  },[citas, citasLocalStorage]);
 
   return (
     <>

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import PropTypes from 'prop-types';
 
 const Formulario = ({addCitas}) => {
 
@@ -115,6 +116,13 @@ const Formulario = ({addCitas}) => {
     </>
   );
 }
+
+
+Formulario.propTypes = {
+  addCitas: PropTypes.func.isRequired
+
+}
+
 
 export default Formulario;
 
