@@ -6,11 +6,11 @@ import ShowCitas from './components/ShowCitas';
 function App() {
 
   let citasLocalStorage = JSON.parse(localStorage.getItem('citas'));
-  // if(!citasLocalStorage){
-  //   console.log('No tengo localstorage');
-  //   //si no tengo citas en localStorage entonces voy a guardar un arreglo vacio 
-  //   citasLocalStorage = [];
-  // }
+  if(!citasLocalStorage){
+    console.log('No tengo localstorage');
+    //si no tengo citas en localStorage entonces voy a guardar un arreglo vacio 
+    citasLocalStorage = [];
+  }
 
   const [citas, setCitas] =useState(citasLocalStorage);
 
