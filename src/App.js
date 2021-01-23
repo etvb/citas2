@@ -41,10 +41,15 @@ function App() {
 
   return (
     <>
+
       <div className="container mt-3">
+        <header className="row justify-content-center">
+          <h1 className="">Crear citas</h1>
+
+        </header>
         <div className="row" >
           <div className="U-border col-sm mb-2">
-            <h2 className="text-center">Pedidos</h2>
+            <h2 className="text-center">Nueva cita</h2>
             <Formulario  addCitas={addCitas}/>
             <div className="line"> </div>
           </div>
