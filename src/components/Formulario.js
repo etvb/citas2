@@ -63,51 +63,61 @@ const Formulario = ({addCitas}) => {
   return(
     <>
       {
-        error ? <p>Todos los campos son obligatorios </p> : null
+        error ? <p class="alert alert-danger" role="alert">Todos los campos son obligatorios </p> : null
       }
       <form
         onSubmit={handleSubmit}
       >
-        <label htmlFor="mascota">Nombre Mascota</label>
-        <input 
-          id="mascota"
-          type="text"
-          name="mascota"
-          onChange={handleChange}
-          value={cita.mascota}
-        />
-        <label htmlFor="dueño">Nombre Dueño</label>
-        <input 
-          id="dueño"
-          type="text"
-          name="dueño"
-          onChange={handleChange}
-          value={cita.dueño}
-        />
-        <label htmlFor="fecha">Fecha de Ingreso</label>
-        <input 
-          id="fecha"
-          type="date"
-          name="fecha"
-          onChange={handleChange}
-          value={cita.fecha}
-        />
-        <label htmlFor="hora">Hora de Ingreso</label>
-        <input 
-          id="hora"
-          type="time"
-          name="hora"
-          onChange={handleChange}
-          value={cita.hora}
-        />
-        <label htmlFor="sintomas">Síntomas</label>
+        <label htmlFor="mascota d-block">Nombre Mascota:
+          <input 
+            className="ml-1"
+            id="mascota"
+            type="text"
+            name="mascota"
+            onChange={handleChange}
+            value={cita.mascota}
+          />
+        </label>
+        <label htmlFor="dueño" className="d-block">Nombre Dueño:
+          <input 
+            className="ml-1"
+            id="dueño"
+            type="text"
+            name="dueño"
+            onChange={handleChange}
+            value={cita.dueño}
+          />
+        </label>
+        <label htmlFor="fecha" className="d-block">Fecha de Ingreso:
+          <input 
+            className="ml-1"
+            id="fecha"
+            type="date"
+            name="fecha"
+            onChange={handleChange}
+            value={cita.fecha}
+          />
+        </label>
+        <label htmlFor="hora" className="d-block">Hora de Ingreso:
+          <input 
+            className="ml-1"
+            id="hora"
+            type="time"
+            name="hora"
+            onChange={handleChange}
+            value={cita.hora}
+          />
+        </label>
+        <label htmlFor="sintomas" className="d-block">Síntomas:</label>
         <textarea
+          className="w-100"
           id="sintomas"
           name="sintomas"
           onChange={handleChange}
           value={cita.sintomas}
         ></textarea>
-        <button 
+        <button
+          className="addButton d-block w-100 p-2"
           type="submit"
         >
           Agregar Cita

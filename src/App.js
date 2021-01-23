@@ -41,21 +41,36 @@ function App() {
 
   return (
     <>
-      <h2>Pedidos</h2>
-      <Formulario  addCitas={addCitas}/>
+      <div className="container mt-3">
+        <div className="row" >
+          <div className="U-border col-sm mb-2">
+            <h2 className="text-center">Pedidos</h2>
+            <Formulario  addCitas={addCitas}/>
+            <div className="line"> </div>
+          </div>
+
+
+          <div className="col-sm vh-100 border overflow-auto">
+            <h2 className="text-center">Citas</h2>
+            {citas.map((cita) => {
+              return (
+                <ShowCitas
+                  key={cita.id} 
+                  cita={cita}
+                  delCita={delCita} 
+                />)
+            })
+            }
+          </div>
+        </div>
+        
+
+        
+
+      </div>
 
 
 
-      <h2>Citas</h2>
-      {citas.map((cita) => {
-        return (
-          <ShowCitas
-            key={cita.id} 
-            cita={cita}
-            delCita={delCita} 
-          />)
-      })
-      }
     </>
   );
 }

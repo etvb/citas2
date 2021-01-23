@@ -1,11 +1,54 @@
+:root {
+  --blue: rgb(0, 0, 192);
+  --white: rgb(250, 250, 250);
+  --red: rgb(197, 4, 4);
+  --gold: rgb(241, 207, 11)
+} 
+
+
+h1, h2, h3, h4{
+  color: var(--blue)
+}
+label {
+  color: var(--gold)
+}
+
+.U-colorGoold {
+  color: var(--gold)
+}
+
+
 body {
   margin: 0;
   font-family: 'Staatliches', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--white)
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.addButton {
+  background-color: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
 }
+
+.line:before {
+  display: block;
+  content: ' ';
+  margin-top: 15px;
+  /* width: 100%; */
+  /* height: 1px; */
+  border-top: 2px solid rgb(197, 4, 4);  
+}
+
+@media (min-width: 576px){
+  .U-border {
+    border: 1px solid #dee2e6!important;
+  }
+
+  .line:before {
+    display: none;
+  } 
+
+}
+
