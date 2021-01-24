@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Formulario from './components/Formulario';
 import ShowCitas from './components/ShowCitas';
+import toastr from 'toastr';
+import './toastr.min.css'
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
 
   const addCitas = (infoCita) => {
     setCitas([...citas,infoCita]);
+    toastr.success('Cita CREADA')
   }
   
   const delCita = (id) => {
@@ -23,6 +26,7 @@ function App() {
       return  cita.id !== id
     })
     setCitas(newCitas);
+    toastr.warning('CITA BORRADA')
   }
   
   //LOCALSTORAGE: Cada que cambien el state citas tenemos que hacer que el localStorage se actualiza para esto 
